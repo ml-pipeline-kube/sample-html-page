@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Test Github Pages</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <script type='text/javascript'>
+        function getTime() {
+            var apiUrl = 'http://worldtimeapi.org/api/timezone/Asia/Jakarta';
+            fetch(apiUrl).then(response => {
+                return response.json();
+            }).then(data => {
+                // Work with JSON data here
+                document.getElementById("datetime").innerText = "Datetime: " + data.datetime;
+                // console.log(data);
+            }).catch(err => {
+                // Do something for an error here
+            });
+        }
+
+        function reset() {
+            document.getElementById("datetime").innerText = "Datetime: -";
+        }
+    </script>
+</head>
+<body>
+    <p id="demo">Test Pages</p>
+    <p id="datetime">Datetime: -</p>
+
+    <button onclick="getTime()">
+        Hit API
+    </button>
+
+    <button onclick="reset()">
+        Reset datetime
+    </button>
+</body>
+</html>

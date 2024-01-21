@@ -19,6 +19,19 @@
                 // Do something for an error here
             });
         }
+        
+        function getCodespace() {
+            var apiUrl = 'https://ominous-fishstick-x5wjpwjgxj9426gpq-8080.app.github.dev/transactionservice/transactions';
+            fetch(apiUrl).then(response => {
+                return response.json();
+            }).then(data => {
+                // Work with JSON data here
+                document.getElementById("datetime").innerText = "Datetime: " + data.amount;
+                // console.log(data);
+            }).catch(err => {
+                // Do something for an error here
+            });
+        }
 
         function reset() {
             document.getElementById("datetime").innerText = "Datetime: -";
@@ -29,7 +42,7 @@
     <p id="demo">Test Pages</p>
     <p id="datetime">Datetime: -</p>
 
-    <button onclick="getTime()">
+    <button onclick="getCodespace()">
         Hit API
     </button>
 
